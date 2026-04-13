@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting…</title>
+    <script>
+      // GitHub Pages + SPA (BrowserRouter) fallback:
+      // redirect unknown routes back to index.html preserving the path.
+      (function () {
+        var l = window.location;
+        var segmentCount = 1; // /<repo>/
+        var pathParts = l.pathname.split('/').filter(Boolean);
+        var repoBase = '/' + (pathParts[0] || '') + '/';
+        var rest = '/' + pathParts.slice(segmentCount).join('/');
+        var query = l.search || '';
+        var hash = l.hash || '';
+        l.replace(repoBase + '?p=' + encodeURIComponent(rest + query + hash));
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

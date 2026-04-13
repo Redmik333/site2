@@ -4,6 +4,9 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Make asset paths work both on a custom repo path (/repo/)
+  // and on a user site root (username.github.io).
+  base: './',
   logLevel: 'error', // Suppress warnings, only show errors
   plugins: [
     base44({
